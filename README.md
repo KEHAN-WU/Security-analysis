@@ -22,8 +22,8 @@ This project presents an interactive narrative analysis of global security incid
 
 ## 🌐 Live Website | 在线演示网页
 
-👉 [**Click to View the Web Report**](https://yourusername.github.io/security-analysis/)  
-（请替换成你自己的 GitHub Pages 链接）
+👉 [**Click to View the Web Report**]
+https://kehan-wu.github.io/Security-analysis/
 
 ---
 
