@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Security Incidents: A Data Story</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    body {
+      font-family: "Helvetica", sans-serif;
+      max-width: 850px;
+      margin: auto;
+      padding: 2rem;
+      background-color: #fdfdfd;
+      color: #222;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2a2a2a;
+    }
+    img {
+      width: 100%;
+      border-radius: 6px;
+      margin: 1rem 0;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .section {
+      margin-bottom: 3rem;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🛡️ Security Incidents: A Data Story</h1>
+  <p>This interactive narrative presents patterns, relationships, and predictive insights based on security incident data from 2000 to 2023. Scroll down to follow the analysis story step by step.</p>
+
+  <div class="section">
+    <h2>1. Yearly Trends in Security Incidents</h2>
+    <img src="assets/figures/fig1.png" alt="Yearly Trend">
+    <p>Incidents increased steadily from 2000 to 2015, followed by a dip in 2016–2017 and resurgence after 2018, reflecting potential changes in political or social dynamics.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Monthly Distribution</h2>
+    <img src="assets/figures/fig2.png" alt="Monthly Distribution">
+    <p>There is no strong seasonal pattern, but June and July show slight spikes in incidents, possibly tied to regional events or climate-related instability.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Casualty Distribution (Total Killed)</h2>
+    <img src="assets/figures/fig3.png" alt="Casualty Distribution">
+    <p>The distribution of total killed is highly skewed—most incidents result in low casualties, but a few events cause severe loss of life.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Feature Relationships (Scatter Matrix)</h2>
+    <img src="assets/figures/fig4.png" alt="Scatter Matrix">
+    <p>Scatter plots show moderate correlations among casualty-related variables. 'Total killed', 'Total wounded', and 'Total affected' are closely linked, providing good predictors.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Outlier Detection</h2>
+    <img src="assets/figures/fig5.png" alt="Boxplot Outliers">
+    <p>Boxplots reveal the presence of outliers across all casualty metrics, highlighting high-impact events that need further contextual analysis.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Regression Residuals</h2>
+    <img src="assets/figures/fig6.png" alt="Residual Plot">
+    <p>Residuals of the linear regression model show reasonable spread without strong heteroscedasticity, suggesting a decent model fit for predicting affected counts.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Linear Regression Feature Importance</h2>
+    <img src="assets/figures/fig7.png" alt="Feature Importance">
+    <p>'Log_Total_Affected' is the most influential feature. Interestingly, 'Casualty Ratio' has a negative coefficient, possibly due to multicollinearity or imbalance.</p>
+  </div>
+
+  <div class="section">
+    <h2>8. Data Science Workflow</h2>
+    <img src="assets/figures/fig8.png" alt="Data Science Process">
+    <p>This analysis followed a classic data science pipeline—from raw data collection to cleaning, modeling, visualization, and finally storytelling through deployment.</p>
+  </div>
+
+  <div class="section">
+    <h2>9. Correlation Heatmap</h2>
+    <img src="assets/figures/fig9.png" alt="Correlation Heatmap">
+    <p>The correlation heatmap confirms several clusters of related features, including different types of casualties and agency involvement. These insights support targeted modeling strategies.</p>
+  </div>
+
+  <div class="footer">
+    <p>KeHan Wu | Georgetown University | March 2025</p>
+    <p><a href="scripts/interaactive.py" download>📥 Download Analysis Script</a></p>
+  </div>
+
+</body>
+</html>
