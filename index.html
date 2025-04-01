@@ -1,122 +1,146 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Security Incidents Analysis</title>
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="utf-8"/>
+<title>Security Incidents Analysis</title>
+<link href="assets/style.css" rel="stylesheet"/>
 </head>
 <body>
-  <h1>📊 Security Incidents Analysis</h1>
-  <h2>📌 Navigation</h2>
-  <ul>
-    <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#research">Research Questions</a></li>
-    <li><a href="#dataset">Dataset Overview</a></li>
-    <li><a href="#eda_year">EDA – Yearly Trends</a></li>
-    <li><a href="#eda_month">EDA – Monthly Patterns</a></li>
-    <li><a href="#eda_skew">Skewed Casualty Distributions</a></li>
-    <li><a href="#features">Feature Relationships</a></li>
-    <li><a href="#outliers">Outlier Detection</a></li>
-    <li><a href="#regression">Regression Analysis</a></li>
-    <li><a href="#classification">Classification Analysis</a></li>
-    <li><a href="#findings">Key Findings</a></li>
-    <li><a href="#limitations">Limitations</a></li>
-    <li><a href="#recommendations">Recommendations</a></li>
-    <li><a href="#conclusion">Conclusion</a></li>
-  </ul>
-
-  <div class="section">
-    <h2 id="introduction">Introduction</h2>
-    <p>This presentation explores a dataset containing security incidents over time. The goal is to uncover patterns, relationships, and predictive insights using statistical and machine learning techniques. Key questions include understanding trends, identifying high-impact incidents, and building models to predict outcomes.</p>
-    <img src="assets/figures/fig1.png" alt="Figure 1">
-    <p class="caption">Figure 1: Overview of security incident analysis goals</p>
-  </div>
-
-  <div class="section">
-    <h2 id="research">Research Questions</h2>
-    <p>What are the temporal trends in security incidents? How do casualty metrics like Total killed, Total wounded, and Total affected relate to each other? Can we predict the severity of incidents using numerical features? Can we classify incidents as verified or unverified based on available data?</p>
-    <img src="assets/figures/fig2.png" alt="Figure 2">
-    <p class="caption">Figure 2: Summary of key research questions</p>
-  </div>
-
-  <div class="section">
-    <h2 id="dataset">Dataset Overview</h2>
-    <p>The dataset contains information on security incidents from 2000 to 2023. Data cleaning steps included removing duplicates, handling missing values, and creating derived features like Casualty Ratio and Log_Total_Affected. Key features include Year, Month, Total killed, Total wounded, Total affected, and Verified.</p>
-    <img src="assets/figures/fig3.png" alt="Figure 3">
-    <p class="caption">Figure 3: Dataset schema and key features</p>
-  </div>
-
-  <div class="section">
-    <h2 id="eda_year">EDA – Yearly Trends</h2>
-    <p>The histogram of incidents over the years shows an increasing trend from 2000 to 2015, a dip around 2016–2017, and a recent surge post-2018. These trends suggest growing instability, with potential temporary interventions during the dip.</p>
-    <img src="assets/figures/fig4.png" alt="Figure 4">
-    <p class="caption">Figure 4: Number of incidents per year</p>
-  </div>
-
-  <div class="section">
-    <h2 id="eda_month">EDA – Monthly Patterns</h2>
-    <p>No strong seasonal patterns are observed, but the mid-year spike could be linked to specific events or conditions. The distribution of incidents across months reveals a slight peak in June and July.</p>
-    <img src="assets/figures/fig5.png" alt="Figure 5">
-    <p class="caption">Figure 5: Monthly distribution of incidents</p>
-  </div>
-
-  <div class="section">
-    <h2 id="eda_skew">Skewed Casualty Distributions</h2>
-    <p>Distributions of Total killed, Total wounded, and Total affected are highly skewed, with most incidents being minor. A small number of incidents result in disproportionately high casualties, indicating their severity.</p>
-    <img src="assets/figures/fig6.png" alt="Figure 6">
-    <p class="caption">Figure 6: Distribution of casualty metrics</p>
-  </div>
-
-  <div class="section">
-    <h2 id="features">Feature Relationships</h2>
-    <p>The scatter matrix highlights relationships between features. Weak correlations exist between Year/Month and casualty metrics, while moderate correlations are observed between Total killed, Total wounded, and Total affected. These findings inform feature selection for predictive modeling.</p>
-    <img src="assets/figures/fig7.png" alt="Figure 7">
-    <p class="caption">Figure 7: Feature correlation scatter matrix</p>
-  </div>
-
-  <div class="section">
-    <h2 id="outliers">Outlier Detection</h2>
-    <p>Boxplots reveal outliers in casualty metrics, representing high-impact incidents. These outliers skew the distributions and warrant further investigation to understand their context.</p>
-    <img src="assets/figures/fig8.png" alt="Figure 8">
-    <p class="caption">Figure 8: Outliers in casualty-related features</p>
-  </div>
-
-  <div class="section">
-    <h2 id="regression">Regression Analysis</h2>
-    <p>A linear regression model predicts Total affected using numerical features. The residual plot shows no systematic pattern, indicating a good fit. Feature importance analysis reveals that Log_Total_Affected is the strongest predictor, followed by Total killed and Total wounded.</p>
-    <img src="assets/figures/fig9.png" alt="Figure 9">
-    <p class="caption">Figure 9: Linear regression model diagnostics</p>
-  </div>
-
-  <div class="section">
-    <h2 id="classification">Classification Analysis</h2>
-    <p>A logistic regression model classifies incidents as verified or unverified. Performance metrics include accuracy, ROC AUC score, and confusion matrix. Scaling numerical features improved model performance.</p>
-  </div>
-
-  <div class="section">
-    <h2 id="findings">Key Findings</h2>
-    <p>Temporal trends show increasing incidents over time, with a notable dip around 2016–2017. Casualty metrics are positively correlated, with a few high-impact incidents driving the trends. Both regression and classification models performed reasonably well but have limitations.</p>
-  </div>
-
-  <div class="section">
-    <h2 id="limitations">Limitations</h2>
-    <p>The analysis has limitations, including weak interpretability of temporal features and potential underperformance of linear models due to non-linear relationships. High-impact incidents require deeper investigation, and more sophisticated models may improve predictions.</p>
-  </div>
-
-  <div class="section">
-    <h2 id="recommendations">Recommendations</h2>
-    <p>Future research should explore high-impact incidents further and test non-linear models like decision trees or gradient boosting. Additional features, such as geographic or event-specific markers, could enhance predictive power.</p>
-  </div>
-
-  <div class="section">
-    <h2 id="conclusion">Conclusion</h2>
-    <p>This analysis provides valuable insights into security incidents, highlighting trends, relationships, and predictive capabilities. While the models offer useful predictions, addressing limitations will strengthen future research.</p>
-  </div>
-
-  <div class="footer">
-    <p>KeHan Wu | Georgetown University | March 2025</p>
-    <p><a href="scripts/interactive.py" download>📥 Download Python Script</a></p>
-    <p><a href="https://e6yqreedcax8n5s79en2za.streamlit.app/" target="_blank">🔗 View the Interactive App</a></p>
-  </div>
+<h1>📊 Security Incidents Analysis</h1>
+<h2>📌 Navigation</h2>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#research">Research Questions</a></li>
+<li><a href="#dataset">Dataset Overview</a></li>
+<li><a href="#eda_year">EDA – Yearly Trends</a></li>
+<li><a href="#eda_month">EDA – Monthly Patterns</a></li>
+<li><a href="#eda_skew">Skewed Casualty Distributions</a></li>
+<li><a href="#features">Feature Relationships</a></li>
+<li><a href="#outliers">Outlier Detection</a></li>
+<li><a href="#regression">Regression Analysis</a></li>
+<li><a href="#classification">Classification Analysis</a></li>
+<li><a href="#findings">Key Findings</a></li>
+<li><a href="#limitations">Limitations</a></li>
+<li><a href="#recommendations">Recommendations</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<div class="section">
+<h2 id="introduction">Introduction
+<p>The analysis of security incidents offers valuable insights into patterns, relationships, and trends that can improve responses and strategies for mitigating risks. By identifying high-impact incidents, security measures can be better prioritized, improving preparedness for future incidents.</p>
+<p>In this project, statistical and machine learning techniques are used to uncover these insights, with a focus on predictive modeling and actionable recommendations for future research and policy development.</p>
+</h2>
+<p>This presentation explores a dataset containing security incidents over time. The goal is to uncover patterns, relationships, and predictive insights using statistical and machine learning techniques. Key questions include understanding trends, identifying high-impact incidents, and building models to predict outcomes.</p>
+<img alt="Figure 1" src="assets/figures/fig1.png"/>
+<p class="caption">Figure 1: Overview of security incident analysis goals</p>
+</div>
+<div class="section">
+<h2 id="research">Research Questions
+<p>Additional research questions include:</p>
+<ul>
+<li>What role do geographic and organizational factors play in influencing the frequency of security incidents?</li>
+<li>How do specific high-casualty events relate to other features such as location, type, or cause of incident?</li>
+<li>Can time-based models predict the likelihood of incidents occurring in certain periods or locations?</li>
+</ul>
+</h2>
+<p>What are the temporal trends in security incidents? How do casualty metrics like Total killed, Total wounded, and Total affected relate to each other? Can we predict the severity of incidents using numerical features? Can we classify incidents as verified or unverified based on available data?</p>
+<img alt="Figure 2" src="assets/figures/fig2.png"/>
+<p class="caption">Figure 2: Summary of key research questions</p>
+</div>
+<div class="section">
+<h2 id="dataset">Dataset Overview
+<p>In addition to the steps mentioned, more sophisticated data cleaning techniques were employed, including interpolation of missing values for numerical features and normalization of certain features to improve model performance. A breakdown of missing data before and after cleaning is shown below:</p>
+<table>
+<tr><th>Feature</th><th>Missing Data (Before)</th><th>Missing Data (After)</th></tr>
+<tr><td>Total killed</td><td>5%</td><td>0%</td></tr>
+<tr><td>Total wounded</td><td>7%</td><td>0%</td></tr>
+<tr><td>Total affected</td><td>10%</td><td>0%</td></tr>
+</table>
+</h2>
+<p>The dataset contains information on security incidents from 2000 to 2023. Data cleaning steps included removing duplicates, handling missing values, and creating derived features like Casualty Ratio and Log_Total_Affected. Key features include Year, Month, Total killed, Total wounded, Total affected, and Verified.</p>
+<img alt="Figure 3" src="assets/figures/fig3.png"/>
+<p class="caption">Figure 3: Dataset schema and key features</p>
+</div>
+<div class="section">
+<h2 id="eda_year">EDA – Yearly Trends
+<p>In addition to the overall trend, we can observe that global events such as major conflicts or economic downturns have a significant impact on the number of incidents. For instance, the spikes in 2010 and 2015 align with the onset of political unrest in several regions.</p>
+</h2>
+<p>The histogram of incidents over the years shows an increasing trend from 2000 to 2015, a dip around 2016–2017, and a recent surge post-2018. These trends suggest growing instability, with potential temporary interventions during the dip.</p>
+<img alt="Figure 4" src="assets/figures/fig4.png"/>
+<p class="caption">Figure 4: Number of incidents per year</p>
+</div>
+<div class="section">
+<h2 id="eda_month">EDA – Monthly Patterns
+<p>The mid-year spikes could also correlate with specific events such as global summits, protests, or climate-related phenomena that increase the risk of security incidents.</p>
+</h2>
+<p>No strong seasonal patterns are observed, but the mid-year spike could be linked to specific events or conditions. The distribution of incidents across months reveals a slight peak in June and July.</p>
+<img alt="Figure 5" src="assets/figures/fig5.png"/>
+<p class="caption">Figure 5: Monthly distribution of incidents</p>
+</div>
+<div class="section">
+<h2 id="eda_skew">Skewed Casualty Distributions</h2>
+<p>Distributions of Total killed, Total wounded, and Total affected are highly skewed, with most incidents being minor. A small number of incidents result in disproportionately high casualties, indicating their severity.</p>
+<img alt="Figure 6" src="assets/figures/fig6.png"/>
+<p class="caption">Figure 6: Distribution of casualty metrics</p>
+</div>
+<div class="section">
+<h2 id="features">Feature Relationships
+<p>In the feature correlation scatter matrix, Total killed and Total affected exhibit a stronger relationship, indicating that incidents with higher fatalities tend to have a larger number of affected individuals. Understanding these relationships can guide future feature selection for more accurate predictive modeling.</p>
+</h2>
+<p>The scatter matrix highlights relationships between features. Weak correlations exist between Year/Month and casualty metrics, while moderate correlations are observed between Total killed, Total wounded, and Total affected. These findings inform feature selection for predictive modeling.</p>
+<img alt="Figure 7" src="assets/figures/fig7.png"/>
+<p class="caption">Figure 7: Feature correlation scatter matrix</p>
+</div>
+<div class="section">
+<h2 id="outliers">Outlier Detection
+<p>Outliers represent high-impact incidents, such as terrorist attacks or large-scale natural disasters. These events, though rare, have a disproportionate effect on the overall trends and should be studied in greater detail.</p>
+</h2>
+<p>Boxplots reveal outliers in casualty metrics, representing high-impact incidents. These outliers skew the distributions and warrant further investigation to understand their context.</p>
+<img alt="Figure 8" src="assets/figures/fig8.png"/>
+<p class="caption">Figure 8: Outliers in casualty-related features</p>
+</div>
+<div class="section">
+<h2 id="regression">Regression Analysis
+<p>Further improvements can be made to the linear regression model by considering interaction terms between features and exploring more complex regression techniques that may better capture the non-linear nature of the data.</p>
+</h2>
+<p>A linear regression model predicts Total affected using numerical features. The residual plot shows no systematic pattern, indicating a good fit. Feature importance analysis reveals that Log_Total_Affected is the strongest predictor, followed by Total killed and Total wounded.</p>
+<img alt="Figure 9" src="assets/figures/fig9.png"/>
+<p class="caption">Figure 9: Linear regression model diagnostics</p>
+</div>
+<div class="section">
+<h2 id="classification">Classification Analysis
+<p>Performance metrics for the classification model showed that scaling the numerical features significantly improved model performance. Future work could explore hyperparameter tuning to optimize the classification model.</p>
+</h2>
+<p>A logistic regression model classifies incidents as verified or unverified. Performance metrics include accuracy, ROC AUC score, and confusion matrix. Scaling numerical features improved model performance.</p>
+</div>
+<div class="section">
+<h2 id="findings">Key Findings
+<p>The increasing trend of incidents over time emphasizes the need for more proactive intervention strategies. Key findings also highlight the importance of addressing high-casualty incidents and improving predictive capabilities through enhanced models.</p>
+</h2>
+<p>Temporal trends show increasing incidents over time, with a notable dip around 2016–2017. Casualty metrics are positively correlated, with a few high-impact incidents driving the trends. Both regression and classification models performed reasonably well but have limitations.</p>
+</div>
+<div class="section">
+<h2 id="limitations">Limitations
+<p>One of the main limitations is the linear nature of some of the models used, which fail to capture the complexity of the data. Additionally, the analysis does not account for all potential variables such as geographic location or socio-political conditions.</p>
+</h2>
+<p>The analysis has limitations, including weak interpretability of temporal features and potential underperformance of linear models due to non-linear relationships. High-impact incidents require deeper investigation, and more sophisticated models may improve predictions.</p>
+</div>
+<div class="section">
+<h2 id="recommendations">Recommendations
+<p>Future research should look into using decision trees or gradient boosting algorithms to capture the non-linear relationships in the data. Incorporating additional features like geographic data or event types could further improve prediction accuracy.</p>
+</h2>
+<p>Future research should explore high-impact incidents further and test non-linear models like decision trees or gradient boosting. Additional features, such as geographic or event-specific markers, could enhance predictive power.</p>
+</div>
+<div class="section">
+<h2 id="conclusion">Conclusion
+<p>In conclusion, the analysis provides valuable insights into security incidents and demonstrates the potential of data-driven approaches to inform policy and improve response strategies. However, more advanced models and additional data features could lead to more robust predictions in the future.</p>
+</h2>
+<p>This analysis provides valuable insights into security incidents, highlighting trends, relationships, and predictive capabilities. While the models offer useful predictions, addressing limitations will strengthen future research.</p>
+</div>
+<div class="footer">
+<p>KeHan Wu | Georgetown University | March 2025</p>
+<p><a download="" href="scripts/interactive.py">📥 Download Python Script</a></p>
+<p><a href="https://e6yqreedcax8n5s79en2za.streamlit.app/" target="_blank">🔗 View the Interactive App</a></p>
+</div>
 </body>
 </html>
