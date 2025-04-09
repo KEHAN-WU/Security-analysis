@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Security Incidents Analysis</title>
+<link href="assets/style.css" rel="stylesheet"/>
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4; /* Optional: Slight background color for better contrast */
+    }
+    h1, h2 {
+        font-weight: bold;
+    }
+    p, li {
+        font-size: 16px;
+        font-weight: normal;
+    }
+    ul {
+        margin-left: 20px;
+    }
+
+    /* Container for content to center and control max width */
+    .container {
+        max-width: 1200px; /* Limit width to 1200px */
+        margin: 0 auto; /* Center the content */
+        padding: 20px; /* Add some padding around the content */
+    }
+
+    /* Navigation Bar */
+    .navbar {
+        position: sticky;
+        top: 0;
+        background-color: #333;
+        padding: 5px 0; /* Adjusted padding for a smaller navbar */
+        z-index: 1000;
+    }
+    .navbar a {
+        color: white;
+        padding: 10px 15px; /* Adjusted padding for a smaller navbar */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px; /* Reduced font size */
+    }
+    .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    /* Caption Styling */
+    .caption {
+        font-size: 14px;
+        font-style: italic;
+        text-align: center;
+    }
+
+    /* Hover Effects */
+    .hoverable:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s;
+        cursor: pointer;
+    }
+
+    /* Footer */
+    .footer {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Modern Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lato:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
+    /* Download Button Styling */
+    .download-btn {
+        background-color: #4CAF50; /* Green background for better contrast */
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .download-btn:hover {
+        background-color: #45a049; /* Slightly darker green on hover */
+    }
+
+    /* Image Styling */
+    .hoverable {
+        max-width: 100%; /* Ensure the image doesn't exceed container width */
+        height: auto; /* Maintain aspect ratio */
+    }
+</style>
+</head>
+<body>
+<!-- Sticky Navigation Bar -->
+<div class="navbar">
+    <a href="#introduction"><i class="fas fa-home"></i> Introduction</a>
+    <a href="#research"><i class="fas fa-question-circle"></i> Research Questions</a>
+    <a href="#dataset"><i class="fas fa-database"></i> Dataset Overview</a>
+    <a href="#eda_year"><i class="fas fa-chart-line"></i> EDA – Yearly Trends</a>
+    <a href="#eda_month"><i class="fas fa-calendar-week"></i> EDA – Monthly Patterns</a>
+    <a href="#eda_skew"><i class="fas fa-cogs"></i> Skewed Casualty Distributions</a>
+    <a href="#features"><i class="fas fa-project-diagram"></i> Feature Relationships</a>
+    <a href="#outliers"><i class="fas fa-exclamation-triangle"></i> Outlier Detection</a>
+    <a href="#regression"><i class="fas fa-chart-bar"></i> Regression Analysis</a>
+    <a href="#classification"><i class="fas fa-robot"></i> Classification Analysis</a>
+    <a href="#findings"><i class="fas fa-search"></i> Key Findings</a>
+    <a href="#limitations"><i class="fas fa-exclamation-circle"></i> Limitations</a>
+    <a href="#recommendations"><i class="fas fa-lightbulb"></i> Recommendations</a>
+    <a href="#conclusion"><i class="fas fa-flag-checkered"></i> Conclusion</a>
+</div>
+
+<div class="container">
+    <h1>📊 Security Incidents Analysis</h1>
+    <!-- Sections Begin -->
+    <div class="section">
+    <h2 id="introduction"><i class="fas fa-info-circle"></i> Introduction
+    <p>The analysis of security incidents offers valuable insights into patterns, relationships, and trends that can improve responses and strategies for mitigating risks. By identifying high-impact incidents, security measures can be better prioritized, improving preparedness for future incidents.</p>
+    </h2>
+    <p>This presentation explores a dataset containing security incidents over time. The goal is to uncover patterns, relationships, and predictive insights using statistical and machine learning techniques. Key questions include understanding trends, identifying high-impact incidents, and building models to predict outcomes.</p>
+    <img alt="Figure 1" src="assets/figures/fig1.png" class="hoverable"/>
+    <p class="caption">Figure 1: Overview of security incidents analysis goals</p>
+    </div>
+
+    <div class="section">
+    <h2 id="research"><i class="fas fa-question-circle"></i> Research Questions</h2>
+    <p>Additional research questions include:</p>
+    <ul>
+    <li>What role do geographic and organizational factors play in influencing the frequency of security incidents?</li>
+    <li>How do specific high-casualty events relate to other features such as location, type, or cause of incident?</li>
+    <li>Can time-based models predict the likelihood of incidents occurring in certain periods or locations?</li>
+    </ul>
+    </div>
+
+    <div class="section" id="dataset">
+    <h2><i class="fas fa-database"></i> Dataset Overview</h2>
+    <p>In addition to the steps mentioned, more sophisticated data cleaning techniques were employed, including interpolation of missing values for numerical features and normalization of certain features to improve model performance. A breakdown of missing data before and after cleaning is shown below:</p>
+    <table>
+    <tr><th>Feature</th><th>Missing Data (Before)</th><th>Missing Data (After)</th></tr>
+    <tr><td>Total killed</td><td>5%</td><td>0%</td></tr>
+    <tr><td>Total wounded</td><td>7%</td><td>0%</td></tr>
+    <tr><td>Total affected</td><td>10%</td><td>0%</td></tr>
+    </table>
+    <p>The dataset contains information on security incidents from 2000 to 2023. Data cleaning steps included removing duplicates, handling missing values, and creating derived features like Casualty Ratio and Log_Total_Affected. Key features include Year, Month, Total killed, Total wounded, Total affected, and Verified.</p>
+    <p><a href="https://e6yqreedcax8n5s79en2za.streamlit.app/" target="_blank">🔗 View the Interactive App</a></p>
+    <img alt="Figure 2" src="assets/figures/fig2.png" class="hoverable"/>
+    <p class="caption">Figure 2: Overview of dataset features</p>
+    </div>
+
+    <div class="section">
+    <h2 id="eda_year"><i class="fas fa-chart-line"></i> EDA – Yearly Trends</h2>
+    <p>In addition to the overall trend, we can observe that global events such as major conflicts or economic downturns have a significant impact on the number of incidents. For instance, the spikes in 2010 and 2015 align with the onset of political unrest in several regions.</p>
+    <img alt="Figure 3" src="assets/figures/fig3.png" class="hoverable"/>
+    <p class="caption">Figure 3: Yearly trends in security incidents</p>
+    </div>
+
+    <div class="section">
+    <h2 id="eda_month"><i class="fas fa-calendar-week"></i> EDA – Monthly Patterns</h2>
+    <p>The mid-year spikes could also correlate with specific events such as global summits, protests, or climate-related phenomena that increase the risk of security incidents.</p>
+    <img alt="Figure 4" src="assets/figures/fig4.png" class="hoverable"/>
+    <p class="caption">Figure 4: Monthly distribution of incidents</p>
+    </div>
+
+    <div class="section">
+    <h2 id="eda_skew"><i class="fas fa-cogs"></i> Skewed Casualty Distributions</h2>
+    <p>Distributions of Total killed, Total wounded, and Total affected are highly skewed, with most incidents being minor. A small number of incidents result in disproportionately high casualties, indicating their severity.</p>
+    <img alt="Figure 5" src="assets/figures/fig5.png" class="hoverable"/>
+    <p class="caption">Figure 5: Distribution of casualties across incidents</p>
+    </div>
+
+    <div class="section">
+    <h2 id="features"><i class="fas fa-project-diagram"></i> Feature Relationships</h2>
+    <p>In the feature correlation scatter matrix, Total killed and Total affected exhibit a stronger relationship, indicating that incidents with higher fatalities tend to have a larger number of affected individuals. Understanding these relationships can guide future feature selection for more accurate predictive modeling.</p>
+    <img alt="Figure 6" src="assets/figures/fig6.png" class="hoverable"/>
+    <p class="caption">Figure 6: Feature correlation matrix</p>
+    </div>
+
+    <div class="section">
+    <h2 id="outliers"><i class="fas fa-exclamation-triangle"></i> Outlier Detection</h2>
+    <p>Outliers represent high-impact incidents, such as terrorist attacks or large-scale natural disasters. These events, though rare, have a disproportionate effect on the overall trends and should be studied in greater detail.</p>
+    <img alt="Figure 7" src="assets/figures/fig7.png" class="hoverable"/>
+    <p class="caption">Figure 7: Outlier detection in casualty data</p>
+    </div>
+
+    <div class="section">
+    <h2 id="regression"><i class="fas fa-chart-bar"></i> Regression Analysis</h2>
+    <p>Further improvements can be made to the linear regression model by considering interaction terms between features and exploring more complex regression techniques that may better capture the non-linear nature of the data.</p>
+    <img alt="Figure 8" src="assets/figures/fig8.png" class="hoverable"/>
+    <p class="caption">Figure 8: Regression model residuals</p>
+    <img alt="Figure 9" src="assets/figures/fig9.png" class="hoverable"/>
+    <p class="caption">Figure 9: Feature importance analysis</p>
+    </div>
+
+    <div class="section">
+    <h2 id="classification"><i class="fas fa-robot"></i> Classification Analysis</h2>
+    <p>In this section, we evaluate the performance of two machine learning models: <strong>Logistic Regression</strong> and <strong>Random Forest</strong>. The models were evaluated using accuracy and AUC (Area Under the Curve) from ROC (Receiver Operating Characteristic) analysis. Below are the performance metrics and ROC curves for each model:</p>
+    <p><strong>Logistic Regression</strong> performed well in the first experiment, achieving an <strong>AUC = 0.94</strong>, indicating strong predictive power. This model correctly classifies the majority of incidents based on the input features. On the other hand, <strong>Random Forest</strong>, with the same AUC score of <strong>0.94</strong>, also demonstrated excellent performance, confirming that ensemble methods like Random Forest can handle classification tasks with complex relationships better than simpler models.</p>
+    <p>However, in the second experiment, both models showed much weaker performance. <strong>Logistic Regression</strong> obtained an <strong>AUC = 0.66</strong>, which is relatively low, indicating that it struggled to accurately classify incidents. Similarly, <strong>Random Forest</strong> also achieved a low <strong>AUC = 0.66</strong>, confirming that it did not perform as well in this case.</p>
+    <p>These results suggest that model performance can vary significantly depending on the dataset and the complexity of the problem. Further tuning and feature engineering might be required to improve the classification accuracy. The performance of both models highlights the need for careful model selection and evaluation, especially when dealing with complex, real-world datasets.</p>
+    <img alt="Figure 10" src="assets/figures/fig10.jpg" class="hoverable"/>
+    <p class="caption">Figure 10: ROC curve and AUC for Logistic Regression and Random Forest</p>
+    <img alt="Figure 11" src="assets/figures/fig11.jpg" class="hoverable"/>
+    <p class="caption">Figure 11: Performance comparison of Logistic Regression and Random Forest</p>
+    </div>
+
+    <div class="section">
+    <h2 id="findings"><i class="fas fa-search"></i> Key Findings</h2>
+    <p>The increasing trend of incidents over time emphasizes the need for more proactive intervention strategies. Key findings also highlight the importance of addressing high-casualty incidents and improving predictive capabilities through enhanced models.</p>
+    <p>Temporal trends show increasing incidents over time, with a notable dip around 2016–2017. Casualty metrics are positively correlated, with a few high-impact incidents driving the trends. Both regression and classification models performed reasonably well but have limitations.</p>
+    </div>
+
+    <div class="section">
+    <h2 id="limitations"><i class="fas fa-exclamation-circle"></i> Limitations</h2>
+    <p>One of the main limitations is the linear nature of some of the models used, which fail to capture the complexity of the data. Additionally, the analysis does not account for all potential variables such as geographic location or socio-political conditions.</p>
+    <p>The analysis has limitations, including weak interpretability of temporal features and potential underperformance of linear models due to non-linear relationships. High-impact incidents require deeper investigation, and more sophisticated models may improve predictions.</p>
+    </div>
+
+    <div class="section">
+    <h2 id="recommendations"><i class="fas fa-lightbulb"></i> Recommendations</h2>
+    <p>Future research should look into using decision trees or gradient boosting algorithms to capture the non-linear relationships in the data. Incorporating additional features like geographic data or event types could further improve prediction accuracy.</p>
+    <p>Future research should explore high-impact incidents further and test non-linear models like decision trees or gradient boosting. Additional features, such as geographic or event-specific markers, could enhance predictive power.</p>
+    </div>
+
+    <div class="section">
+    <h2 id="conclusion"><i class="fas fa-flag-checkered"></i> Conclusion</h2>
+    <p>In conclusion, the analysis provides valuable insights into security incidents and demonstrates the potential of data-driven approaches to inform policy and improve response strategies. However, more advanced models and additional data features could lead to more robust predictions in the future.</p>
+    <p>This analysis provides valuable insights into security incidents, highlighting trends, relationships, and predictive capabilities. While the models offer useful predictions, addressing limitations will strengthen future research.</p>
+    </div>
+
+    <div class="footer">
+    <p>kw940 | Georgetown University | March 2025</p>
+    <a href="scripts/interactive.py" class="download-btn">📥 Download Python Script</a>
+    </div>
+</div>
+</body>
+</html>
+
